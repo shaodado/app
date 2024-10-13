@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  totalCount = 10;
-  finishCount = 3;
+  content = '建立代辦事項元件';
+  state: 'None' | 'Doing' | 'Finish' | 'Finish' = 'None';
+  onSetState(state: 'None' | 'Doing' | 'Finish' | 'Finish'): void {
+    this.state = state;
+  }
 }

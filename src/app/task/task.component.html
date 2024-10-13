@@ -1,3 +1,5 @@
-<div>代辦事項總數:{{ totalCount }}</div>
-<div>已完成個數:{{ finishCount }}</div>
-<div>剩下代辦事項個數:{{ totalCount - finishCount }}</div>
+<div>Task 1-{{ content }}</div>
+<div>代辦事項狀態:{{ state }}</div>
+<button type="button" (click)="onSetState('None')">未安排</button>
+<button type="button" (click)="onSetState('Doing')">進行中</button>
+<button type="button" (click)="onSetState('Finish')">已完成</button>
