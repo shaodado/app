@@ -10,7 +10,11 @@ import { Component } from '@angular/core';
 export class TaskComponent {
   content = '建立代辦事項元件';
   state: 'None' | 'Doing' | 'Finish' | 'Finish' = 'None';
+  color: any;
   onSetState(state: 'None' | 'Doing' | 'Finish' | 'Finish'): void {
     this.state = state;
   }
+
+  type: 'Home' | 'Work' | 'Other' = 'Work';
+  fontSize = 14;
 }
