@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -8,14 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  content = '建立代辦事項元件';
-  state: 'None' | 'Doing' | 'Finish' | 'Finish' = 'None';
-  color: any;
+  @Input() content!: string;
+  @Input() type!: 'Home' | 'Work' | 'Study' | 'Other';
+  @Input() state!: 'None' | 'Doing' | 'Finish' | 'Finish';
+
   onSetState(state: 'None' | 'Doing' | 'Finish' | 'Finish'): void {
     this.state = state;
   }
-
-  type: 'Home' | 'Work' | 'Other' = 'Work';
-  fontSize = 14;
-  className = 'work';
 }

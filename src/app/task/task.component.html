@@ -1,4 +1,8 @@
-<div [class]="className">類型: {{ type }}</div>
+<div
+  [class.home]="type === 'Home'"
+  [class.work]="type === 'Work'"
+  [class.other]="type === 'Other'"
+></div>
 <div>Task 1-{{ content }}</div>
 <div>代辦事項狀態:{{ state }}</div>
 <button

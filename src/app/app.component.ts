@@ -10,5 +10,7 @@ import { TaskComponent } from './task/task.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'todo-app2';
+  content = '建立代辦事項元件';
+  type: 'Home' | 'Work' | 'Study' | 'Other' = 'Home';
+  state: 'None' | 'Doing' | 'Finish' | 'Finish' = 'None';
 }
