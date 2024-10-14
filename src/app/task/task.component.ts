@@ -17,4 +17,5 @@ export class TaskComponent {
 
   type: 'Home' | 'Work' | 'Other' = 'Work';
   fontSize = 14;
+  className = 'work';
 }
