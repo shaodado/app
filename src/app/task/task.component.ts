@@ -1,9 +1,9 @@
 import {
-  Attribute,
   Component,
   EventEmitter,
   Input,
   Output,
+  numberAttribute,
 } from '@angular/core';
 
 @Component({
@@ -14,14 +14,19 @@ import {
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  private _id!: number;
-  @Input() content!: string;
-  @Input() type!: 'Home' | 'Work' | 'Study' | 'Other';
-  @Input() state!: 'None' | 'Doing' | 'Finish' | 'Finish';
+  @Input({ required: true, transform: numberAttribute }) id!: number;
 
-  constructor(@Attribute('id') public id: number) {}
+  @Input({ required: true }) content!: string;
+
+  @Input({ required: true }) type!: 'Home' | 'Work' | 'Study' | 'Other';
+
+  @Input({ required: true }) state!: 'None' | 'Doing' | 'Finish' | 'Finish';
 
   @Output() stateChage = new EventEmitter<'None' | 'Doing' | 'Finish'>();
+
+  totalCount = 10;
+
+  finishCount = 3;
 
   onSetState(state: 'None' | 'Doing' | 'Finish' | 'Finish'): void {
     this.stateChage.emit(state);
