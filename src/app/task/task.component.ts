@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, numberAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -13,13 +13,8 @@ export class TaskComponent {
   @Input() type!: 'Home' | 'Work' | 'Study' | 'Other';
   @Input() state!: 'None' | 'Doing' | 'Finish' | 'Finish';
 
-  @Input() set id(id: string) {
-    this._id = +id;
-  }
-
-  get id(): string {
-    return this._id.toString();
-  }
+  @Input({ required: true, transform: numberAttribute })
+  id!: number;
 
   onSetState(state: 'None' | 'Doing' | 'Finish' | 'Finish'): void {
     this.state = state;
