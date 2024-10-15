@@ -1,4 +1,10 @@
-import { Attribute, Component, Input } from '@angular/core';
+import {
+  Attribute,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -15,7 +21,9 @@ export class TaskComponent {
 
   constructor(@Attribute('id') public id: number) {}
 
+  @Output() stateChage = new EventEmitter<'None' | 'Doing' | 'Finish'>();
+
   onSetState(state: 'None' | 'Doing' | 'Finish' | 'Finish'): void {
-    this.state = state;
+    this.stateChage.emit(state);
   }
 }
