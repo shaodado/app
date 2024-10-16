@@ -1,6 +1,16 @@
-<div *ngTemplateOutlet="task; context: { totalCount: 6, finishCount: 3 }"></div>
+<div
+  *ngTemplateOutlet="
+    task;
+    context: { $implicit: 1, totalCount: 6, finishCount: 3 }
+  "
+></div>
 <br />
-<div *ngTemplateOutlet="task; context: { totalCount: 2, finishCount: 1 }"></div>
+<div
+  *ngTemplateOutlet="
+    task;
+    context: { $implicit: 2, totalCount: 2, finishCount: 1 }
+  "
+></div>
 
 <ng-template #task let-totalCount="totalCount" let-finishCount="finishCount">
   <app-task
