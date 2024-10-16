@@ -1,12 +1,18 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { PageContainerComponent } from './page-container/page-container.component';
 import { TaskComponent } from './task/task.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TaskComponent, NgTemplateOutlet],
+  imports: [
+    RouterOutlet,
+    TaskComponent,
+    NgTemplateOutlet,
+    PageContainerComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
