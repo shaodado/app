@@ -1,22 +1,19 @@
-<div
-  *ngTemplateOutlet="
-    task;
-    context: { $implicit: 1, totalCount: 6, finishCount: 3 }
-  "
-></div>
-<br />
-
-<ng-template #task let-totalCount="totalCount" let-finishCount="finishCount">
-  <app-page-container>
-    <app-task
-      id="1"
-      [content]="content"
-      [type]="type"
-      [(state)]="state"
-    ></app-task>
-    <hr />
+<app-page-container>
+  <h3>代辦事項清單</h3>
+  <div>
+    <button>新增</button>
+    <button>查詢</button>
+  </div>
+  <app-task
+    id="1"
+    [content]="content"
+    [type]="type"
+    [(state)]="state"
+  ></app-task>
+  <hr />
+  <div class="footer">
     <div>代辦事項總數:{{ totalCount }}</div>
     <div>已完成個數:{{ finishCount }}</div>
     <div>剩下代辦事項個數:{{ totalCount - finishCount }}</div>
-  </app-page-container>
-</ng-template>
+  </div>
+</app-page-container>

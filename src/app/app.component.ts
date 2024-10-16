@@ -24,4 +24,6 @@ export class AppComponent {
   onSetState(state: 'None' | 'Doing' | 'Finish'): void {
     this.state = state;
   }
+  totalCount = 6;
+  finishCount = 3;
 }
