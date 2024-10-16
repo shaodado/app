@@ -12,11 +12,10 @@ import { TaskComponent } from './task/task.component';
 })
 export class AppComponent {
   content = '建立代辦事項元件';
-  type: 'Home' | 'Work' | 'Study' | 'Other' = 'Home';
-  state: 'None' | 'Doing' | 'Finish' | 'Finish' = 'None';
-  totalCount = 10;
-  finishCount = 3;
-  onSetState(state: 'None' | 'Doing' | 'Finish' | 'Finish'): void {
+  type: 'Home' | 'Work' | 'Other' = 'Home';
+  state: 'None' | 'Doing' | 'Finish' = 'None';
+
+  onSetState(state: 'None' | 'Doing' | 'Finish'): void {
     this.state = state;
   }
 }

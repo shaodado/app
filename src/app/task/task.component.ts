@@ -18,17 +18,13 @@ export class TaskComponent {
 
   @Input({ required: true }) content!: string;
 
-  @Input({ required: true }) type!: 'Home' | 'Work' | 'Study' | 'Other';
+  @Input({ required: true }) type!: 'Home' | 'Work' | 'Other';
 
-  @Input({ required: true }) state!: 'None' | 'Doing' | 'Finish' | 'Finish';
+  @Input({ required: true }) state!: 'None' | 'Doing' | 'Finish';
 
-  @Output() stateChage = new EventEmitter<'None' | 'Doing' | 'Finish'>();
+  @Output() stateChange = new EventEmitter<'None' | 'Doing' | 'Finish'>();
 
-  totalCount = 10;
-
-  finishCount = 3;
-
-  onSetState(state: 'None' | 'Doing' | 'Finish' | 'Finish'): void {
-    this.stateChage.emit(state);
+  onSetState(state: 'None' | 'Doing' | 'Finish'): void {
+    this.stateChange.emit(state);
   }
 }

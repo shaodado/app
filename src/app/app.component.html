@@ -1,11 +1,16 @@
-<p>Before ng-template</p>
-<div *ngTemplateOutlet="task"></div>
-<p>After ng-template</p>
+<div *ngTemplateOutlet="task; context: { totalCount: 6, finishCount: 3 }"></div>
+<br />
+<div *ngTemplateOutlet="task; context: { totalCount: 2, finishCount: 1 }"></div>
 
-<ng-template #task>
-  <app-task id="1" [content]="content" [type]="type" [state]="state"></app-task>
+<ng-template #task let-totalCount="totalCount" let-finishCount="finishCount">
+  <app-task
+    id="1"
+    [content]="content"
+    [type]="type"
+    [(state)]="state"
+  ></app-task>
   <hr />
-  <div>代辦事項總數{{ totalCount }}</div>
-  <div>已完成個數{{ finishCount }}</div>
-  <div>剩下代辦事項個數{{ totalCount - finishCount }}</div>
+  <div>代辦事項總數:{{ totalCount }}</div>
+  <div>已完成個數:{{ finishCount }}</div>
+  <div>剩下代辦事項個數:{{ totalCount - finishCount }}</div>
 </ng-template>
