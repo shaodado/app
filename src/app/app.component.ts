@@ -13,6 +13,8 @@ export class AppComponent {
   content = '建立代辦事項元件';
   type: 'Home' | 'Work' | 'Study' | 'Other' = 'Home';
   state: 'None' | 'Doing' | 'Finish' | 'Finish' = 'None';
+  totalCount = 10;
+  finishCount = 3;
   onSetState(state: 'None' | 'Doing' | 'Finish' | 'Finish'): void {
     this.state = state;
   }
