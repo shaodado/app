@@ -3,6 +3,7 @@ import {
   EventEmitter,
   Input,
   Output,
+  SimpleChanges,
   numberAttribute,
 } from '@angular/core';
 
@@ -18,13 +19,46 @@ export class TaskComponent {
 
   @Input({ required: true }) content!: string;
 
-  @Input({ required: true }) type!: 'Home' | 'Work' | 'Other';
+  @Input({ required: true })
+  type!: 'Home' | 'Work' | 'Other';
 
-  @Input({ required: true }) state!: 'None' | 'Doing' | 'Finish';
+  @Input({ required: true })
+  state!: 'None' | 'Doing' | 'Finish';
 
-  @Output() stateChange = new EventEmitter<'None' | 'Doing' | 'Finish'>();
+  @Output() stateChange = new EventEmitter
+  <'None' | 'Doing' | 'Finish'>();
+
+  startDate?:Date;
+  finishDate?:Date;
+
+  ngOnInit(): void {
+    console.log('Angular OnInit Life Cycle Hook');
+  }
+
+  ngOnChanges(changes:SimpleChanges): void {
+    console.log('Angular OnChanges Life Cycle Hook', changes);
+    if (changes['state']) {
+      this.setTaskDate();
+    }
+  }
 
   onSetState(state: 'None' | 'Doing' | 'Finish'): void {
     this.stateChange.emit(state);
   }
+  setTaskDate(): void {
+    switch (this.state) {
+      case 'None':
+        this.startDate = undefined;
+        this.finishDate = undefined;
+        break;
+      case 'Doing':
+        this.startDate = new Date();
+        this.finishDate = undefined;
+        break;
+      case 'Finish':
+        this.finishDate = new Date();
+        break;
+    }
+  }
 }
+
